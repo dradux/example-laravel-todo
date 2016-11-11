@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+        var appver = '1.0.0';
+    </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,10 +26,16 @@
         .fa-btn {
             margin-right: 6px;
         }
+        .appver {
+            position: absolute;
+            top: 0px;
+            right: 13px;
+        }
     </style>
 </head>
 <body id="app-layout">
     <nav class="navbar navbar-default">
+        <div class="appver"><script>document.write(appver);</script></div>
         <div class="container">
             <div class="navbar-header">
 

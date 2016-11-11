@@ -1,0 +1,24 @@
+# NOTICE: you must have an .env file (see the .env.template as a reference).
+version: '2'
+
+services:
+  db:
+    #https://hub.docker.com/_/postgres/
+    image: postgres:9.5
+  #redis:
+  #  #https://hub.docker.com/_/redis/
+  #  image: redis:3.2-alpine
+  #  command: redis-server --appendonly yes
+  web:
+    build: .
+    # all env items should be in .env
+    env_file: .env
+    command: php artisan serve --host=0.0.0.0 --port=3000
+    # use volume for "dynamic" changes
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+    depends_on:
+    # wait for db to be started.
+    - db
